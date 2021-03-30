@@ -39,7 +39,7 @@ fn router() -> anyhow::Result<Router> {
     let (chain, pipelines) = pipeline::single::single_pipeline(pipeline);
 
     Ok(builder::build_router(chain, pipelines, |route| {
-        route.get("*").to(slack_invite);
+        route.get("/").to(slack_invite);
     }))
 }
 
